@@ -67,6 +67,9 @@ colorscheme atom-dark-256                 " set color scheme, must be installed 
 set background=dark                       " dark background for console
 syntax enable                             " enable syntax highlighting
 
+" custom commands
+:command Q wqa
+
 " keymaps
 let mapleader=","
 nmap <silent> <leader><leader> :noh<CR>   " disable search highlight using comma-comma

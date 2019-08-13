@@ -1,4 +1,4 @@
-# Configuration filed for neovim
+# Configuration file for Neovim
 
 This repository should be cloned in the .config direktory structure
 

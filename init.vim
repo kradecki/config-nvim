@@ -79,8 +79,8 @@ nmap <S-Tab> :bprevious<CR>               " previous buffer (tab)
 " =================================================================================================
 " NERDTREE CONFIG
 " =================================================================================================
-" autoopen on startup
-autocmd VimEnter * NERDTree | wincmd p
+autocmd VimEnter * NERDTree | wincmd p    " autoopen on startup
+let NERDTreeShowHidden=1                  " show hidden files
 " keys maps
 nnoremap <silent> <F2> :NERDTreeFind<CR>
 noremap <F3> :NERDTreeToggle<CR>

@@ -1,6 +1,6 @@
 # Configuration file for Neovim
 
-This repository should be cloned in the .config direktory structure
+This repository should be cloned in the .config directory structure.
 
 ```bash
 mkdir -p ~/.config/nvim

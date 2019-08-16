@@ -35,7 +35,7 @@ pip install neovim
 pyenv deactivate
 ```
 
-Python 3
+Python 3:
 ```bash
 # Install latest python 3
 pyenv install 3.7.4

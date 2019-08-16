@@ -9,6 +9,7 @@ call plug#begin('~/.config/nvim/plugged')
      Plug 'jiangmiao/auto-pairs'
      Plug 'vim-airline/vim-airline'
      Plug 'vim-airline/vim-airline-themes'
+     Plug 'airblade/vim-gitgutter'
      Plug 'ryanoasis/vim-devicons'
 call plug#end()
 

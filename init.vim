@@ -6,6 +6,7 @@ call plug#begin('~/.config/nvim/plugged')
      Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
      Plug 'scrooloose/nerdcommenter'
      Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+     Plug 'jiangmiao/auto-pairs'
      Plug 'vim-airline/vim-airline'
      Plug 'vim-airline/vim-airline-themes'
      Plug 'ryanoasis/vim-devicons'

@@ -49,6 +49,7 @@ set smartcase                             " ...unless capital letters are used
 " syntax highlighting
 colorscheme atom-dark-256                 " set color scheme, must be installed first
 set background=dark                       " dark background for console
+set list listchars=tab:\›\ ,trail:-,extends:>,precedes:<,space:·
 syntax enable                             " enable syntax highlighting
 
 " Python provider

@@ -1,18 +1,14 @@
 " =================================================================================================
-" PLUGIN MANAGEMENT
+" VIM-PLUG PLUGIN MANAGEMENT (see: https://github.com/junegunn/vim-plug)
 " =================================================================================================
 
-" see: https://github.com/junegunn/vim-plug
 call plug#begin('~/.config/nvim/plugged')
-Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
-" use <leader> c <space> to toggle the comments
-Plug 'scrooloose/nerdcommenter'
-" show filetype icons in nerdtree windows
-" follow the instructions: https://github.com/ryanoasis/nerd-fonts#font-installation
-"     brew tap homebrew/cask-fonts
-"     brew cask install font-firacode-nerd-font
-" attention: this plugin should be installed as the final one
-Plug 'ryanoasis/vim-devicons'
+     Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+     Plug 'scrooloose/nerdcommenter'
+     Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+     Plug 'vim-airline/vim-airline'
+     Plug 'vim-airline/vim-airline-themes'
+     Plug 'ryanoasis/vim-devicons'
 call plug#end()
 
 " =================================================================================================
@@ -23,22 +19,9 @@ set nocompatible
 
 " display settings
 set encoding=UTF-8                        " encoding used for displaying file
-set ruler                                 " show the cursor position all the time
 set showmatch                             " highlight matching braces
-set showmode                              " show insert/replace/visual mode
 set number                                " show line numbers
-set title                                 " window title
 set termguicolors                         " enable truecolors
-
-" Statusline settings
-set laststatus=2
-set statusline=
-set statusline+=%<\                       " cut at start
-set statusline+=%2*[%n%H%M%R%W]%*\        " flags and buf no
-set statusline+=%-40f\                    " path
-set statusline+=%=%1*%y%*%*\              " file type
-set statusline+=%10((%l,%c)%)\            " line and column
-set statusline+=%P                        " percentage of file
 
 " write settings
 set confirm                               " confirm :q in case of unsaved changes
@@ -54,7 +37,6 @@ set softtabstop=4                         " backspacing over 8 spaces like over 
 set tabstop=4                             " set tabulator length to 8 columns
 set autoindent                            " enable auto-indentation
 set smartindent                           " enable smart-indentation
-"set textwidth=120                         " wrap lines automatically at 80th column
 
 " search settings
 set hlsearch                              " highlight search results
@@ -67,21 +49,41 @@ colorscheme atom-dark-256                 " set color scheme, must be installed 
 set background=dark                       " dark background for console
 syntax enable                             " enable syntax highlighting
 
-" custom commands
+" Python provider
+if has("nvim")
+    let g:python_host_prog = $HOME . "/.pyenv/versions/neovim2/bin/python"
+    let g:python3_host_prog = $HOME . "/.pyenv/versions/neovim3/bin/python"
+endif
+
+
+" =================================================================================================
+" PLUGIN CONFIGURATION
+" =================================================================================================
+
+""" Deoplete
+let g:deoplete#enable_at_startup = 1
+set completeopt-=preview                                  " Disable documentation window
+inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
+
+""" Nerdtree
+autocmd VimEnter * NERDTree | wincmd p                    " autoopen on startup
+let NERDTreeShowHidden=1                                  " show hidden files
+nnoremap <silent> <F2> :NERDTreeFind<CR>                  " Use F2 to toggle TreeFind
+noremap <F3> :NERDTreeToggle<CR>                          " Use F3 to toggle Nerdtree 
+map <C-n> :NERDTreeToggle<CR>                             " Use Ctrl-N to toggle Nerdtree
+
+""" Airline
+let g:airline_powerline_fonts = 1
+let g:airline_section_warning = ''
+let g:airline_theme='papercolor'
+let g:airline#extensions#tabline#enabled = 1
+
+
+" =================================================================================================
+" CUSTOM COMMANDS AND KEYMAPPINGS
+" =================================================================================================
 :command Q wqa
 
-" keymaps
-let mapleader=","
-nmap <silent> <leader><leader> :noh<CR>   " disable search highlight using comma-comma
-nmap <Tab> :bnext<CR>                     " next buffer (tab)
-nmap <S-Tab> :bprevious<CR>               " previous buffer (tab)
-
-" =================================================================================================
-" NERDTREE CONFIG
-" =================================================================================================
-autocmd VimEnter * NERDTree | wincmd p    " autoopen on startup
-let NERDTreeShowHidden=1                  " show hidden files
-" keys maps
-nnoremap <silent> <F2> :NERDTreeFind<CR>
-noremap <F3> :NERDTreeToggle<CR>
-map <C-n> :NERDTreeToggle<CR>
+nmap <silent> <leader><leader> :noh<CR>
+nmap <Tab> :bnext<CR>
+nmap <S-Tab> :bprevious<CR>

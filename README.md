@@ -5,7 +5,7 @@ This repository should be cloned in the .config directory structure.
 ```bash
 mkdir -p ~/.config/nvim
 cd ~/.config/nvim
-git clone git@gitlab.com:kradecki/nvim.git .
+git clone git@github.com:kradecki/nvim.git
 mkdir plugged
 ```
 First time you start vim simply execute `:PlugInstall` in order to install all plugins.
@@ -22,7 +22,8 @@ brew cask install font-firacode-nerd-font
 ```
 
 ### Python provider
-Prepare the OS for running deoplete.vim
+Prepare the OS for running plugins that require Python, incl:
+* deoplete.vim
 
 Python 2:
 ```bash

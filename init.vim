@@ -17,8 +17,6 @@ call plug#end()
 " =================================================================================================
 " GENERAL SETTINGS
 " =================================================================================================
-" use Vim mode instead of pure Vi, it must be the first instruction
-set nocompatible
 
 " display settings
 set encoding=UTF-8                        " encoding used for displaying file

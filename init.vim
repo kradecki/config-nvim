@@ -22,6 +22,7 @@ call plug#end()
 set encoding=UTF-8                        " encoding used for displaying file
 set showmatch                             " highlight matching braces
 set number                                " show line numbers
+set signcolumn=yes                        " show git status column
 set termguicolors                         " enable truecolors
 
 " write settings

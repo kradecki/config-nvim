@@ -33,6 +33,7 @@ pyenv virtualenv 2.7.16 neovim2
 pyenv activate neovim2
 pip install --upgrade pip
 pip install neovim
+pip install jedi
 pyenv deactivate
 ```
 
@@ -44,5 +45,6 @@ pyenv virtualenv 3.7.4 neovim3
 pyenv activate neovim3
 pip install --upgrade pip
 pip install neovim
+pip install jedi
 pyenv deactivate
 ```

@@ -9,6 +9,21 @@ git clone git@github.com:kradecki/config-nvim.git
 mkdir plugged
 ```
 First time you start vim simply execute `:PlugInstall` in order to install all plugins.
+Periodically run `:PlugUpdate` to update all plugins and `:PlugUpgrade` to update vim-plug itself
+
+## Used plugins
+| Plugin name                    | Description                                     |
+|--------------------------------|-------------------------------------------------|
+| scrooloose/nerdtree            | Navigation pane / project directory             |
+| scrooloose/nerdcommenter       | advanced commenting features                    |
+| Shougo/deoplete.nvim           | autocomplete plugin                             |
+| deoplete-plugins/deoplete-jedi | deoplete Python plugin                          |
+| jiangmiao/auto-pairs'          | automatically add closing brackets, quotes etc. |
+| vim-airline/vim-airline        | status bar and buffer list tab                  |
+| vim-airline/vim-airline-themes | themes for airline plugin                       |
+| mhinz/vim-signify              | add git status symbol next to each line         |
+| sheerun/vim-polyglot           | syntax and formatting for various languages     |
+| ryanoasis/vim-devicons         | filetype icons for nerdtree and airline         |
 
 ## Plugin additional details
 

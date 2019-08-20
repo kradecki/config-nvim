@@ -25,6 +25,10 @@ set showmatch                             " highlight matching braces
 set number                                " show line numbers
 set signcolumn=yes                        " show sign column permanently
 set termguicolors                         " enable truecolors
+set background=dark                       " dark background for console
+set list listchars=tab:\›\ ,trail:-,extends:>,precedes:<,space:·
+syntax enable                             " enable syntax highlighting
+colorscheme atom-dark-256                 " set color scheme, must be installed first
 
 " write settings
 set confirm                               " confirm :q in case of unsaved changes
@@ -43,15 +47,9 @@ set smartindent                           " enable smart-indentation
 
 " search settings
 set hlsearch                              " highlight search results
-set ignorecase                            " do case insensitive search...
 set incsearch                             " do incremental search
+set ignorecase                            " do case insensitive search...
 set smartcase                             " ...unless capital letters are used
-
-" syntax highlighting
-colorscheme atom-dark-256                 " set color scheme, must be installed first
-set background=dark                       " dark background for console
-set list listchars=tab:\›\ ,trail:-,extends:>,precedes:<,space:·
-syntax enable                             " enable syntax highlighting
 
 " Python provider
 if has("nvim")
@@ -66,15 +64,20 @@ endif
 
 """ Deoplete
 let g:deoplete#enable_at_startup = 1
-set completeopt-=preview                                  " Disable documentation window
+set completeopt-=preview
 inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
 
 """ Nerdtree
-autocmd VimEnter * NERDTree | wincmd p                    " autoopen on startup
-let NERDTreeShowHidden=1                                  " show hidden files
-nnoremap <silent> <F2> :NERDTreeFind<CR>                  " Use F2 to toggle TreeFind
-noremap <F3> :NERDTreeToggle<CR>                          " Use F3 to toggle Nerdtree 
-map <C-n> :NERDTreeToggle<CR>                             " Use Ctrl-N to toggle Nerdtree
+autocmd VimEnter * NERDTree | wincmd p
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+let NERDTreeShowHidden = 1
+let NERDTreeMinimalUI = 1
+let NERDTreeDirArrows = 1
+
+nnoremap <silent> <F2> :NERDTreeFind<CR>
+noremap <F3> :NERDTreeToggle<CR>
+map <C-n> :NERDTreeToggle<CR>
 
 """ Airline
 let g:airline_powerline_fonts = 1
@@ -86,8 +89,6 @@ let g:airline#extensions#tabline#enabled = 1
 " =================================================================================================
 " CUSTOM COMMANDS AND KEYMAPPINGS
 " =================================================================================================
-:command Q wqa
-
 nmap <silent> <leader><leader> :noh<CR>
 nmap <Tab> :bnext<CR>
 nmap <S-Tab> :bprevious<CR>

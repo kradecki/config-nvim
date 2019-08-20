@@ -44,6 +44,7 @@ set softtabstop=4                         " backspacing over 8 spaces like over 
 set tabstop=4                             " set tabulator length to 8 columns
 set autoindent                            " enable auto-indentation
 set smartindent                           " enable smart-indentation
+set mouse=a                               " use mouse for window navigation
 
 " search settings
 set hlsearch                              " highlight search results
@@ -74,15 +75,16 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 let NERDTreeShowHidden = 1
 let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 1
+let g:NERDTreeMouseMode = 3
 
-nnoremap <silent> <F2> :NERDTreeFind<CR>
-noremap <F3> :NERDTreeToggle<CR>
-map <C-n> :NERDTreeToggle<CR>
+
+nnoremap <silent> <C-n> :NERDTreeToggle<CR>
+nnoremap <silent> <C-m> :NERDTreeFind<CR>
 
 """ Airline
 let g:airline_powerline_fonts = 1
 let g:airline_section_warning = ''
-let g:airline_theme='papercolor'
+let g:airline_theme = 'papercolor'
 let g:airline#extensions#tabline#enabled = 1
 
 

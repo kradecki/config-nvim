@@ -5,7 +5,7 @@ This repository should be cloned in the .config directory structure.
 ```bash
 mkdir -p ~/.config/nvim
 cd ~/.config/nvim
-git clone git@github.com:kradecki/config-nvim.git
+git clone git@github.com:kradecki/config-nvim.git .
 mkdir plugged
 ```
 First time you start vim simply execute `:PlugInstall` in order to install all plugins.

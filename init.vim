@@ -91,6 +91,7 @@ let g:airline#extensions#tabline#enabled = 1
 " =================================================================================================
 " CUSTOM COMMANDS AND KEYMAPPINGS
 " =================================================================================================
+noremap <leader>x :bp<cr>:bd #<cr>
 nmap <silent> <leader><leader> :noh<CR>
 nmap <Tab> :bnext<CR>
 nmap <S-Tab> :bprevious<CR>
